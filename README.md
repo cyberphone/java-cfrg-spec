@@ -48,4 +48,4 @@ to not run into possible conflicts (_crashes_) with existing code and providers.
  id-Ed25519   OBJECT IDENTIFIER ::= { 1 3 101 112 }
  id-Ed448     OBJECT IDENTIFIER ::= { 1 3 101 113 }
 ```
-_It would IMO be a pity if Oracle and Bouncycastle took different routes for CFRG support._
+_It would IMO be a pity if Oracle, Bouncycastle, and Google(Android) took different routes for CFRG support._
