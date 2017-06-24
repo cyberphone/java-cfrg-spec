@@ -18,44 +18,53 @@ Since both RFC 8037 and the COSE draft use the name "OKP" (Octet Key Pair), it s
 
 Below is a very condensed version of the propoposal:
 
-```
+```java
 public interface OPKKey {
    public String getCurve();         // Algorithm | RFC 8037 "crv"
    public boolean isSignatureKey();  // According to specs a key is either Signature or DH
 }
 ```
 
-```
+```java
 public interface OKPPublicKey extends PublicKey, OKPKey {
    public byte[] getX();  // Public key value | RFC 8037 "x"
 }
 ```
 
-```
+```java
 public interface OKPPrivateKey extends PrivateKey, OKPKey {
   public byte[] getD();  // Private key value | RFC 8037 "d"
 }
 ```
 
-```
+```java
 String curve;  // Algorithm name
 byte[] x;      // Public key value
 byte[] d;      // Private key value
 ```
 
-`KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, x, curve))`
+```java
+KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, x, curve));
+```
 
-`KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, curve))`
+```java
+KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, curve));
+```
 
-`AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curve)`<br>
-`KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP")`
-
-`Signature signature = Signature.getInstance("EdDSA")`
+```java
+AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curve);
+KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP");
+```
+```java
+Signature signature = Signature.getInstance("EdDSA");
+```
 
 The only place where it sort of breaks down is KeyAgreement, I would play it safe by inventing new name:
 `KeyAgreement.getInstance("MoDH")` 
 to not run into possible conflicts (_crashes_) with existing code and providers.  The additional test required to cope with "ECDH" and "MoDH" (for _Montgomery_ in analogy with _Edwards_) seems bearable:
-`KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH")`
+```java
+KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH");
+```
 
  The key algorithm/curve identifiers needed are:
   ```
