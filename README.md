@@ -18,20 +18,29 @@ Since both RFC 8037 and the COSE draft use the name "OKP" (Octet Key Pair), it s
 
 Below is the core propoposal, currently expressed as *examples:*
 
-Keys: `OKPKey`, `OKPPublicKey`, and `OKPPrivateKey`
-
 ```
 public interface OPKKey {
-   public String getCurve();          // RFC 8037 "crv"
-   public byte[] getX();              // RFC 8037 "x"
-   public boolean isSignatureKey();   // According to specs a key is either Signature or DH
+   public String getCurve();         // Algorithm | RFC 8037 "crv"
+   public byte[] getX();             // Public key value | RFC 8037 "x"
+   public boolean isSignatureKey();  // According to specs a key is either Signature or DH
 }
 ```
 
 ```
-String curve; // Algorithm name
-byte[] x;     // Public key value
-byte[] d;     // Private key value
+public interface OKPPublicKey extends PublicKey, OKPKey {
+}
+```
+
+```
+public interface OKPPrivateKey extends PrivateKey, OKPKey {
+  public byte[] getD();  // Private key value | RFC 8037 "d"
+}
+```
+
+```
+String curve;  // Algorithm name
+byte[] x;      // Public key value
+byte[] d;      // Private key value
 ```
 
 `KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, x, curve))`
