@@ -36,7 +36,7 @@ byte[] d;     // Private key value
 
 `KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, x, curve))`
 
-`KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(xValue, curve))`
+`KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, curve))`
 
 `AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curve)`
 `KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP")`
