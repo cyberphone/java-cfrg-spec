@@ -44,7 +44,7 @@ byte[] d;      // Private key value
 ```
 
 ```java
-KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, x, curve));
+KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, curve));
 ```
 
 ```java
