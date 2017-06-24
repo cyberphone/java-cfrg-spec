@@ -21,13 +21,13 @@ Below is a very condensed version of the propoposal:
 ```
 public interface OPKKey {
    public String getCurve();         // Algorithm | RFC 8037 "crv"
-   public byte[] getX();             // Public key value | RFC 8037 "x"
    public boolean isSignatureKey();  // According to specs a key is either Signature or DH
 }
 ```
 
 ```
 public interface OKPPublicKey extends PublicKey, OKPKey {
+   public byte[] getX();  // Public key value | RFC 8037 "x"
 }
 ```
 
