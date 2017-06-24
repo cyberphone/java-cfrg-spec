@@ -1,5 +1,12 @@
 # Specification for integrating CFRG algorithms in Java/JCE
-If distinct classes and interfaces are considered, "OKP" from RFC 8037 would be most logical.  Examples:
+This specification proposal is based on the following IETF RFCs and Drafts:
+- https://tools.ietf.org/html/rfc7748
+- https://tools.ietf.org/html/rfc8032
+- https://tools.ietf.org/html/draft-ietf-curdle-pkix-04
+- https://tools.ietf.org/html/draft-ietf-cose-msg-24
+- https://tools.ietf.org/html/rfc8037
+
+The core issue is if CFRG algorithms should overload current EC classes If distinct classes and interfaces are considered, "OKP" from RFC 8037 would be most logical.  Examples:
 `OKPKey`, `OKPPublicKey`, and `OKPPrivateKey`
 
 ```
