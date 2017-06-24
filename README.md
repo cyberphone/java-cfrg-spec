@@ -52,9 +52,14 @@ KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, curve));
 ```
 
 ```java
-AlgorithmParameterSpec spec = new OKPGenParameterSpec(curve);
+PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(pkcs8PrivateKeyBlob);
+KeyFactory.getInstance("OKP").generatePrivate(keySpec);
+```
+
+```java
+AlgorithmParameterSpec keySpec = new OKPGenParameterSpec(curve);
 KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP");
-kpg.initialize(spec);
+kpg.initialize(keySpec);
 ```
 ```java
 Signature signature = Signature.getInstance("EdDSA");
