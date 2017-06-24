@@ -28,11 +28,17 @@ public interface OPKKey {
 }
 ```
 
-`KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(dValue, xValue, curveName))`
+```
+String curve; // Algorithm name
+byte[] x;     // Public key value
+byte[] d;     // Private key value
+```
 
-`KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(xValue, curveName))`
+`KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, x, curve))`
 
-`AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curveName)`
+`KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(xValue, curve))`
+
+`AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curve)`
 `KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP")`
 
 `Signature signature = Signature.getInstance("EdDSA")`
