@@ -8,13 +8,14 @@ This specification proposal is based on the following IETF RFCs and Drafts:
 
 The core issue is if CFRG algorithms should reuse the current EC classes.  *This specification is based
 on the the idea that the CFRG algoritms are too different from EC to be conveniently
-and locally retrofitted into the EC classes and interfaces.*
+and logically retrofitted into the EC classes and interfaces.*
 
 As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Futhermore, the PKIX draft does not reuse the
 ASN.1 definitions for EC either.
 
 The remaining question would then be what to call this new key type.
-Since both RFC 8037 and the CODE draft use the name "OKP" (Octect Key Point), is seems logical to adopt this name here as well.
+Since both RFC 8037 and the COSE draft use the name "OKP" (Octet Key Pair), is seems reasonable adopting this name here as well.
+
 Examples:
 `OKPKey`, `OKPPublicKey`, and `OKPPrivateKey`
 
