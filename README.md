@@ -8,7 +8,7 @@ This specification proposal is based on the following IETF RFCs and Drafts:
 
 The core issue is if CFRG algorithms should reuse the current EC classes or not.  *This specification is based
 on the idea that the CFRG algorithms differ too much from EC to be conveniently
-and logically moved into the EC classes and interfaces.*
+and logically mapped by the current EC classes and interfaces.*
 
 As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Furthermore, the PKIX draft does not reuse the
 ASN.1 definitions for EC either.
@@ -57,7 +57,7 @@ The only place where it sort of breaks down is KeyAgreement, I would play it saf
 to not run into possible conflicts (_crashes_) with existing code and providers.  The additional test required to cope with "ECDH" and "MoDH" (for _Montgomery_ in analogy with _Edwards_) seems bearable:
 `KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH")`
 
- The named curve identifiers needed seem to be:
+ The key algorithm/curve identifiers needed are:
   ```
  id-X25519    OBJECT IDENTIFIER ::= { 1 3 101 110 }
  id-X448      OBJECT IDENTIFIER ::= { 1 3 101 111 }
