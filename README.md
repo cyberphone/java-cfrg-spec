@@ -6,8 +6,8 @@ This specification proposal is based on the following IETF RFCs and Drafts:
 - https://tools.ietf.org/html/draft-ietf-cose-msg-24
 - https://tools.ietf.org/html/rfc8037
 
-The core issue is if CFRG algorithms should reuse the current EC classes.  *This specification is based
-on the the idea that the CFRG algoritms are too different from EC to be conveniently
+The core issue is if CFRG algorithms should reuse the current EC classes or not.  *This specification is based
+on the the idea that the CFRG algoritms differ too much from EC to be conveniently
 and logically retrofitted into the EC classes and interfaces.*
 
 As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Futhermore, the PKIX draft does not reuse the
