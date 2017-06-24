@@ -16,8 +16,9 @@ ASN.1 definitions for EC either.
 The remaining question would then be what to call this new key type.
 Since both RFC 8037 and the COSE draft use the name "OKP" (Octet Key Pair), it seems reasonable adopting this name here as well.
 
-Examples:
-`OKPKey`, `OKPPublicKey`, and `OKPPrivateKey`
+Below is the core propoposal, currently expressed as *examples:*
+
+Keys: `OKPKey`, `OKPPublicKey`, and `OKPPrivateKey`
 
 ```
 public interface OPKKey {
