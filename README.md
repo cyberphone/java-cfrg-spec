@@ -7,10 +7,10 @@ This specification proposal is based on the following IETF RFCs and Drafts:
 - https://tools.ietf.org/html/rfc8037
 
 The core issue is if CFRG algorithms should reuse the current EC classes or not.  *This specification is based
-on the the idea that the CFRG algoritms differ too much from EC to be conveniently
+on the idea that the CFRG algorithms differ too much from EC to be conveniently
 and logically retrofitted into the EC classes and interfaces.*
 
-As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Futhermore, the PKIX draft does not reuse the
+As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Furthermore, the PKIX draft does not reuse the
 ASN.1 definitions for EC either.
 
 The remaining question would then be what to call this new key type.
