@@ -6,12 +6,16 @@ This specification proposal is based on the following IETF RFCs and Drafts:
 - https://tools.ietf.org/html/draft-ietf-cose-msg-24
 - https://tools.ietf.org/html/rfc8037
 
-The core issue is if CFRG algorithms should reuse the current EC classes.  This specification is based
+The core issue is if CFRG algorithms should reuse the current EC classes.  *This specification is based
 on the the idea that the CFRG algoritms are too different from EC to be conveniently
-and locally retrofitted into the EC classes and interfaces.
+and locally retrofitted into the EC classes and interfaces.*
 
 As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Futhermore, the PKIX draft does not reuse the
-ASN.1 definitions for EC either., dIf distinct classes and interfaces are considered, "OKP" from RFC 8037 would be most logical.  Examples:
+ASN.1 definitions for EC either.
+
+The remaining question would then be what to call this new key type.
+Since both RFC 8037 and the CODE draft use the name "OKP" (Octect Key Point), is seems logical to adopt this name here as well.
+Examples:
 `OKPKey`, `OKPPublicKey`, and `OKPPrivateKey`
 
 ```
@@ -43,6 +47,4 @@ to not run into possible conflicts (_crashes_) with existing code and providers.
  id-Ed25519   OBJECT IDENTIFIER ::= { 1 3 101 112 }
  id-Ed448     OBJECT IDENTIFIER ::= { 1 3 101 113 }
 ```
-_Although maybe not a prime consideration for Bouncycastle, it would IMO be a pity if Oracle took another route for CFRG support._
-
-The COSE draft also refers to "OKP": https://tools.ietf.org/html/draft-ietf-cose-msg-24.
+_It would IMO be a pity if Oracle and Bouncycastle took different routes for CFRG support._
