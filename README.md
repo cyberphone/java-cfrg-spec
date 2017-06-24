@@ -47,7 +47,7 @@ byte[] d;      // Private key value
 
 `KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, curve))`
 
-`AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curve)`
+`AlgorithmParameterSpec spec =  new OKPGenParameterSpec(curve)`<br>
 `KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP")`
 
 `Signature signature = Signature.getInstance("EdDSA")`
