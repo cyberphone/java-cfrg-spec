@@ -5,6 +5,7 @@ This specification proposal is based on the following IETF RFCs and Drafts:
 - https://tools.ietf.org/html/draft-ietf-curdle-pkix-04
 - https://tools.ietf.org/html/draft-ietf-cose-msg-24
 - https://tools.ietf.org/html/rfc8037
+- https://tools.ietf.org/html/rfc5915
 
 The core issue is if CFRG algorithms should reuse the current EC classes or not.  *This specification is based
 on the idea that the CFRG algorithms differ too much from EC to be conveniently
@@ -41,7 +42,8 @@ in order to maintain the original PKCS 8 data during serialization and deseriali
 Software based private keys created by `KeyPairGenerator` **should** provide
 this link and thus produce PKCS 8 data *including* public key information for `getEncoded()`.
 Private keys created by `OKPPrivateKeySpec` **should not** define this link and thus
-produce PKCS 8 data *without* public key information for `getEncoded()`.
+produce PKCS 8 data *without* public key information for `getEncoded()`. JDK 8 does
+not appear to comply with RFC 5915.
 
 This is surely not an ideal solution but the Java world never standardized this part and now it is too late :-)
 
