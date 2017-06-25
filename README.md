@@ -36,6 +36,12 @@ public interface OKPPrivateKey extends PrivateKey, OKPKey {
   public byte[] getD();  // Private key value | RFC 8037 "d"
 }
 ```
+Note: Software based private keys **must** support an *optional shaddow link* to the associated public key
+in order to maintain the correct PKCS 8 version during serialization and deserialization.
+Software based private keys created by `KeyPairGenerator` **must** always provide
+this link and thus produce PKCS 8 version 2 for `getEncoded()`.
+Private keys created by `OKPPrivateKeySpec` **must not** define this link and thus
+produce PKCS 8 verson 1 for `getEncoded()`.
 
 ```java
 String curve;  // Algorithm name
