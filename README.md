@@ -43,6 +43,8 @@ this link and thus produce PKCS 8 version 2 for `getEncoded()`.
 Private keys created by `OKPPrivateKeySpec` **must not** define this link and thus
 produce PKCS 8 version 1 for `getEncoded()`.
 
+This is surely not an ideal solution but I believe this is how it works for the other key types as well :-)
+
 ```java
 String curve;  // Algorithm name
 byte[] x;      // Public key value
