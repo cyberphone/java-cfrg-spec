@@ -14,6 +14,11 @@ and logically mapped into the current EC classes and interfaces.*
 As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Furthermore, the PKIX draft does not reuse the
 ASN.1 definitions for EC either.
 
+RFC 8037: *Do not assume that there is an underlying elliptic curve,
+   despite the existence of the "crv" and "x" parameters.  (For
+   instance, this key type could be extended to represent Diffie-Hellman
+   (DH) algorithms based on hyperelliptic surfaces.)*
+
 The remaining question would then be what to call this new key type.
 Since both RFC 8037 and the COSE draft use the name "OKP" (Octet Key Pair), it seems reasonable adopting this name here as well.
 
