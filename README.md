@@ -37,13 +37,13 @@ public interface OKPPrivateKey extends PrivateKey, OKPKey {
 }
 ```
 Note: Software based private keys **must** support an *optional shadow link* to the associated public key
-in order to maintain the correct PKCS 8 version during serialization and deserialization.
-Software based private keys created by `KeyPairGenerator` **must** always provide
-this link and thus produce PKCS 8 version 2 for `getEncoded()`.
-Private keys created by `OKPPrivateKeySpec` **must not** define this link and thus
-produce PKCS 8 version 1 for `getEncoded()`.
+in order to maintain the correct PKCS 8 data during serialization and deserialization.
+Software based private keys created by `KeyPairGenerator` **should** provide
+this link and thus produce PKCS 8 data including public key information for `getEncoded()`.
+Private keys created by `OKPPrivateKeySpec` **should not** define this link and thus
+produce PKCS 8 data without public key information for `getEncoded()`.
 
-This is surely not an ideal solution but I believe this is how it works for the other key types as well :-)
+This is surely not an ideal solution but the Java world never standardized this part and now it is too late :-)
 
 ```java
 String curve;  // Algorithm name
