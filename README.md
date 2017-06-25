@@ -42,8 +42,8 @@ in order to maintain the original PKCS 8 data during serialization and deseriali
 Software based private keys created by `KeyPairGenerator` **should** provide
 this link and thus produce PKCS 8 data *including* public key information for `getEncoded()`.
 Private keys created by `OKPPrivateKeySpec` **should not** define this link and thus
-produce PKCS 8 data *without* public key information for `getEncoded()`. JDK 8 does
-not appear to comply with RFC 5915.
+produce PKCS 8 data *without* public key information for `getEncoded()`. This is
+what BouncyCastle does for EC and is compliant with RFC 5915.
 
 This is surely not an ideal solution but the Java world never standardized this part and now it is too late :-)
 
