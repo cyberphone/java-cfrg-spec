@@ -96,4 +96,6 @@ KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH");
  id-Ed25519   OBJECT IDENTIFIER ::= { 1 3 101 112 }
  id-Ed448     OBJECT IDENTIFIER ::= { 1 3 101 113 }
 ```
-_It would IMO be a pity if Oracle, Bouncycastle, and Google(Android) took different routes for CFRG support._
+<table>
+<tr><td><i>It would IMO be a pity if Oracle, Bouncycastle, and Google(Android) took different routes for CFRG support</i></td></tr>
+</table>
