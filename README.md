@@ -25,8 +25,11 @@ Below is a very condensed version of the propoposal:
 
 ```java
 public interface OPKKey {
-   public String getCurve();         // Algorithm | RFC 8037 "crv"
-   public boolean isSignatureKey();  // According to specs a key is either Signature or DH
+   public String getCurve();                // Algorithm | RFC 8037 "crv"
+
+   public int USAGE_SIGNATURE = 1;          // For usage with "isPermitted()"
+   public int USAGE_DH = 2;                 // For usage with "isPermitted()"
+   public boolean isPermitted(int usages);  // According to specs a key is either Signature or DH
 }
 ```
 
