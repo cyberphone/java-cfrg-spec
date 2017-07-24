@@ -91,3 +91,6 @@ KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH");
 <table>
 <tr><td><i>It would IMO be a pity if Oracle, Bouncycastle, and Google(Android) took different routes for CFRG support</i></td></tr>
 </table>
+
+## PKCS 11 and .NET
+It would of course be even better if other APIs also would adopt OKP keys.
