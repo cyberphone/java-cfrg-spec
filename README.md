@@ -93,4 +93,4 @@ KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH");
 </table>
 
 ## PKCS 11 and .NET
-It would of course be even better if other APIs also would adopt OKP keys.
+It would of course be even better if other cryptographic APIs also adopt OKP keys.
