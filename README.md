@@ -25,7 +25,7 @@ Below is a very condensed version of the propoposal:
 
 ```java
 public interface OPKKey {
-   public String getAlgorithm();            // Algorithm | RFC 8037 "crv"
+   public String getCurve();                // Algorithm | RFC 8037 "crv"
 
    public int USAGE_SIGNATURE = 1;          // For usage with "isPermitted()"
    public int USAGE_DH = 2;                 // For usage with "isPermitted()"
@@ -46,21 +46,21 @@ public interface OKPPrivateKey extends PrivateKey, OKPKey {
 ```
 
 ```java
-String alg;    // Algorithm name
+String curve;  // Algorithm name
 byte[] x;      // Public key value
 byte[] d;      // Private key value
 ```
 
 ```java
-KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, alg));
+KeyFactory.getInstance("OKP").generatePrivate(new OKPPrivateKeySpec(d, curve));
 ```
 
 ```java
-KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, alg));
+KeyFactory.getInstance("OKP").generatePublic(new OKPPublicKeySpec(x, curve));
 ```
 
 ```java
-AlgorithmParameterSpec keySpec = new OKPGenParameterSpec(alg);
+AlgorithmParameterSpec keySpec = new OKPGenParameterSpec(curve);
 KeyPairGenerator kpg = KeyPairGenerator.getInstance("OKP");
 kpg.initialize(keySpec);
 ```
