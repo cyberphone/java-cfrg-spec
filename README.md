@@ -10,7 +10,7 @@ The core issue is if CFRG algorithms should reuse the current EC classes or not.
 on the idea that the CFRG algorithms differ too much from EC to be conveniently
 and logically mapped into the current EC classes and interfaces.*
 
-None of the existing external representations of CFRG keys specify parameters like `ECPoint`, `coFactor`, or `ECField`;  the PKIX draft does not reuse the ASN.1 EC definitions even for named curves.
+None of the existing external representations of CFRG keys specify parameters like `ECPoint`, `coFactor`, or `ECField`, while the PKIX draft does not reuse the ASN.1 EC definitions even for named curves.
 
 RFC 8037: *Do not assume that there is an underlying elliptic curve,
    despite the existence of the "crv" and "x" parameters.  (For
