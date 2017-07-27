@@ -76,7 +76,7 @@ KeyFactory.getInstance("OKP").generatePrivate(keySpec);
 Signature signature = Signature.getInstance("EdDSA");
 ```
 
-The only place where it sort of breaks down is KeyAgreement, I would play it safe by inventing new name:
+The only place where it sort of breaks down is `KeyAgreement`, I would play it safe by inventing new name:
 `KeyAgreement.getInstance("MoDH")` 
 to not run into possible conflicts (_crashes_) with existing code and providers.  The additional test required to cope with "ECDH" and "MoDH" (for _Montgomery_ in analogy with _Edwards_) seems bearable:
 ```java
