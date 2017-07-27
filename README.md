@@ -27,23 +27,23 @@ Below is a very condensed version of the propoposal:
 
 ```java
 public interface OPKKey {
-   public String getCurve();                // Algorithm | RFC 8037 "crv"
+    public String getCurve();                // Algorithm | RFC 8037 "crv"
 
-   public int USAGE_SIGNATURE = 1;          // For usage with "isPermitted()"
-   public int USAGE_DH = 2;                 // For usage with "isPermitted()"
-   public boolean isPermitted(int usages);  // According to specs a key is either Signature or DH
+    public int USAGE_SIGNATURE = 1;          // For usage with "isPermitted()"
+    public int USAGE_DH = 2;                 // For usage with "isPermitted()"
+    public boolean isPermitted(int usages);  // According to specs a key is either Signature or DH
 }
 ```
 
 ```java
 public interface OKPPublicKey extends PublicKey, OKPKey {
-   public byte[] getX();  // Public key value | RFC 8037 "x"
+    public byte[] getX();  // Public key value | RFC 8037 "x"
 }
 ```
 
 ```java
 public interface OKPPrivateKey extends PrivateKey, OKPKey {
-  public byte[] getD();  // Private key value | RFC 8037 "d"
+    public byte[] getD();  // Private key value | RFC 8037 "d"
 }
 ```
 
@@ -83,12 +83,12 @@ to not run into possible conflicts (_crashes_) with existing code and providers.
 KeyAgreement.getInstance(publicKey instanceof ECKey ? "ECDH" : "MoDH");
 ```
 
- The key algorithm/curve identifiers needed are:
+ The CFRG key algorithm/curve identifiers include:
   ```
- id-X25519    OBJECT IDENTIFIER ::= { 1 3 101 110 }
- id-X448      OBJECT IDENTIFIER ::= { 1 3 101 111 }
- id-Ed25519   OBJECT IDENTIFIER ::= { 1 3 101 112 }
- id-Ed448     OBJECT IDENTIFIER ::= { 1 3 101 113 }
+  X25519
+  X448
+  Ed25519
+  Ed448
 ```
 <table>
 <tr><td><i>It would IMO be a pity if Oracle, Bouncycastle, and Google(Android) took different routes for CFRG support</i></td></tr>
