@@ -10,13 +10,14 @@ The core issue is if CFRG algorithms should reuse the current EC classes or not.
 on the idea that the CFRG algorithms differ too much from EC to be conveniently
 and logically mapped into the current EC classes and interfaces.*
 
-As an example CFRG algorithms do not feature `ECPoint`, `coFactor`, or `ECField`.  Furthermore, the PKIX draft does not reuse the
-ASN.1 definitions for EC either.
+None of the existing external representations of CFRG keys specify parameters like `ECPoint`, `coFactor`, or `ECField`;  the PKIX draft does not reuse the ASN.1 EC definitions even for named curves.
 
 RFC 8037: *Do not assume that there is an underlying elliptic curve,
    despite the existence of the "crv" and "x" parameters.  (For
    instance, this key type could be extended to represent Diffie-Hellman
    (DH) algorithms based on hyperelliptic surfaces.)*
+
+Note: If provider implementations *internally* reuse EC structures is something else which does not have to exposed in "application-level" APIs.
 
 The remaining question would then be what to call this new key type.
 Since both RFC 8037 and the COSE draft use the name "OKP" (Octet Key Pair), it seems reasonable adopting this name here as well.
